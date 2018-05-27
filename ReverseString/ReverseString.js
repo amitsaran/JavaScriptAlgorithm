@@ -8,6 +8,9 @@ var ReverseString = {
 			reverse = character + reverse;
 		}
 		return reverse;
+	},
+	reverseString2: function(str){
+		return str.split('').reduce((acumulator, element) => element + acumulator, '');
 	}
 }
 
