@@ -4,5 +4,6 @@
 3. Reverse a string
 4. Palindrome
 5. Prime Number
+6. Sort (Merge Sort)
 
 
