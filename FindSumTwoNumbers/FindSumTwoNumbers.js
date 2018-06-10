@@ -1,24 +1,13 @@
 function nSum(nums, target) {
 	var retVal = [];
-	var m = nums.reduce(function(accumulator, currentValue, currentIndex){
-		if (accumulator.has(currentValue)){
-			var arrayValues = [accumulator.get(currentValue), currentIndex]
-			accumulator.set(currentValue, arrayValues);
-		}
-		else{
-			accumulator.set(currentValue, currentIndex);
-		}
-		return accumulator;
-	}, new Map());
-	for (let [key, value] of m) {
-		if(Array.isArray(value) && m.get(target-key) === value){
-			retVal = [value[0], value[1]];
+	const hash = {};
+	for (let i = 0; i < nums.length; i++) {
+		const newTarget = target - nums[i];
+		if (hash[newTarget] !== undefined) {
+			retVal = [hash[newTarget], i];
 			break;
 		}
-		else if(m.get(target-key)){
-			retVal = [value, m.get(target-key)];
-			break;
-		}      
+		hash[nums[i]] = i;
 	}
 	return retVal;
 };
